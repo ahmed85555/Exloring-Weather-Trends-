@@ -1,0 +1,12 @@
+library('ggplot2')
+getwd()
+
+/* Read the CSV for each country and the year */
+global = read.csv('global.csv')
+/* Read Global data */
+local = read.csv('local.csv')
+/* plot line chart for moving average for 5 years to my local city which is egypt and the global trend */
+ggplot() + 
+geom_line(data = local, aes(x = year, y = moving_avg), color = "blue") +
+geom_line(data = global, aes(x = year, y = moving_avg), color = "red") +
+scale_x_continuous(breaks = seq(1800,2013,10))
